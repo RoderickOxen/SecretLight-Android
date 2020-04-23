@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:id="@+id/imageFlashlight"
+        android:layout_width="331dp"
+        android:layout_height="359dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="36dp"
+        android:interpolator="@android:anim/linear_interpolator"
+        android:src="@drawable/homecircle" />
+
+    <TextView
+        android:id="@+id/textSecretLight"
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
+        android:layout_below="@+id/imageFlashlight"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="0dp"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:gravity="center"
+        android:text="Secret-Light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="45sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="302dp"
+        android:layout_height="147dp"
+        android:layout_below="@+id/textSecretLight"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="91dp"
+        android:fontFamily="@font/anonymous_pro"
+        android:gravity="center"
+        android:text="@string/initialText"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>
