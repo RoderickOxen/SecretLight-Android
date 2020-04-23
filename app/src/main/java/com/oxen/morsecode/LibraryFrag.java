@@ -6,30 +6,20 @@ import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.Collections;
-import java.util.Map;
-import java.util.TreeMap;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class LibraryFrag extends Fragment {
     private Button backButton;
-    private Button a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z, numbers, punct;
+    private Button a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
     private TextView txtView;
-
-    private boolean flashLightStatus = false;
     boolean hasCameraFlash;
-    private String mCameraId;
     private View view;
 
     @Nullable

@@ -39,7 +39,7 @@ public class ToolBarActivity extends AppCompatActivity {
     public void setmViewPager(ViewPager mViewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new LibraryFrag(), "Alphabet");
-        adapter.addFragment(new LibraryFrag(), "Word");
+        adapter.addFragment(new WordFrag(), "Text");
         mViewPager.setAdapter(adapter);
 
     }
