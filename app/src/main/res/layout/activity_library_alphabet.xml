@@ -382,6 +382,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Menu"
+                android:fontFamily="@font/anonymous_pro_bold"
                 android:textSize="12.5sp" />
 
         </LinearLayout>
