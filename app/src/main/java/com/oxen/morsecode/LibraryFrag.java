@@ -7,18 +7,22 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-public class LibraryAlphabetActivity extends AppCompatActivity {
-
+public class LibraryFrag extends Fragment {
     private Button backButton;
     private Button a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z, numbers, punct;
     private TextView txtView;
@@ -26,54 +30,47 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
     private boolean flashLightStatus = false;
     boolean hasCameraFlash;
     private String mCameraId;
+    private View view;
 
-
-
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_library_alphabet);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        view = inflater.inflate(R.layout.activity_library_alphabet, container, false);
         addListenerOnButton();
-        txtView = (TextView)findViewById(R.id.editText3);
+        txtView = (TextView)view.findViewById(R.id.editText3);
         txtView.setClickable(false);
 
-        hasCameraFlash = getPackageManager().
+        hasCameraFlash = getContext().getPackageManager().
                 hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
+
+        return view;
+    }
+
+
+    public LibraryFrag() {
     }
 
     private void addListenerOnButton() {
-        backButton = (Button) findViewById(R.id.buttonMenu2);
+        backButton = (Button) view.findViewById(R.id.buttonMenu2);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LibraryAlphabetActivity.this, MainActivity.class));
+                startActivity(new Intent(getContext(), MainActivity.class));
 
             }
         });
 
-        numbers = (Button) findViewById(R.id.buttonNumbers);
-        numbers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LibraryAlphabetActivity.this, LibraryNumbersActivity.class));
-
-            }
-        });
-
-
-        a = (Button) findViewById(R.id.buttonA);
+        a = (Button) view.findViewById(R.id.buttonA);
         a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 generateChar(getResources().getStringArray(R.array.alphabet)[0]);
             }
         });
-        b = (Button) findViewById(R.id.buttonB);
+        b = (Button) view.findViewById(R.id.buttonB);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +78,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
             }
         });
 
-        c = (Button) findViewById(R.id.buttonC);
+        c = (Button) view.findViewById(R.id.buttonC);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +86,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        d = (Button) findViewById(R.id.buttonD);
+        d = (Button) view.findViewById(R.id.buttonD);
         d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +94,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        e = (Button) findViewById(R.id.buttonE);
+        e = (Button) view.findViewById(R.id.buttonE);
         e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +102,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        f = (Button) findViewById(R.id.buttonF);
+        f = (Button) view.findViewById(R.id.buttonF);
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +110,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        g = (Button) findViewById(R.id.buttonG);
+        g = (Button) view.findViewById(R.id.buttonG);
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +118,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        h = (Button) findViewById(R.id.buttonH);
+        h = (Button) view.findViewById(R.id.buttonH);
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,7 +126,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        i = (Button) findViewById(R.id.buttonI);
+        i = (Button) view.findViewById(R.id.buttonI);
         i.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,7 +134,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        j = (Button) findViewById(R.id.buttonJ);
+        j = (Button) view.findViewById(R.id.buttonJ);
         j.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +142,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        k = (Button) findViewById(R.id.buttonK);
+        k = (Button) view.findViewById(R.id.buttonK);
         k.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,7 +150,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        l = (Button) findViewById(R.id.buttonL);
+        l = (Button) view.findViewById(R.id.buttonL);
         l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +158,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        m = (Button) findViewById(R.id.buttonM);
+        m = (Button) view.findViewById(R.id.buttonM);
         m.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,7 +166,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        n = (Button) findViewById(R.id.buttonN);
+        n = (Button) view.findViewById(R.id.buttonN);
         n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,7 +174,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        o = (Button) findViewById(R.id.buttonO);
+        o = (Button) view.findViewById(R.id.buttonO);
         o.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,7 +182,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        p = (Button) findViewById(R.id.buttonP);
+        p = (Button) view.findViewById(R.id.buttonP);
         p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -193,7 +190,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        q = (Button) findViewById(R.id.buttonQ);
+        q = (Button) view.findViewById(R.id.buttonQ);
         q.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,7 +198,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        r = (Button) findViewById(R.id.buttonR);
+        r = (Button) view.findViewById(R.id.buttonR);
         r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,7 +206,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        s = (Button) findViewById(R.id.buttonS);
+        s = (Button) view.findViewById(R.id.buttonS);
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,7 +214,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        t = (Button) findViewById(R.id.buttonT);
+        t = (Button) view.findViewById(R.id.buttonT);
         t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -225,7 +222,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        u = (Button) findViewById(R.id.buttonU);
+        u = (Button) view.findViewById(R.id.buttonU);
         u.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -233,7 +230,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        v = (Button) findViewById(R.id.buttonV);
+        v = (Button) view.findViewById(R.id.buttonV);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,7 +238,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        w = (Button) findViewById(R.id.buttonW);
+        w = (Button) view.findViewById(R.id.buttonW);
         w.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -249,7 +246,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        x = (Button) findViewById(R.id.buttonX);
+        x = (Button) view.findViewById(R.id.buttonX);
         x.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -257,7 +254,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        y = (Button) findViewById(R.id.buttonY);
+        y = (Button) view.findViewById(R.id.buttonY);
         y.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -265,7 +262,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
 
             }
         });
-        z = (Button) findViewById(R.id.buttonZ);
+        z = (Button) view.findViewById(R.id.buttonZ);
         z.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -289,7 +286,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
     }
 
     public void typeBlink(int type){
-        CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        CameraManager cameraManager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
         String word = "01";
 
         long blinkdelay = 0;
@@ -297,7 +294,7 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
             blinkdelay = 250;
         }
         else{
-            blinkdelay = 500;
+            blinkdelay = 900;
         }
 
         for(int i=0;i<word.length();i++){
@@ -316,5 +313,6 @@ public class LibraryAlphabetActivity extends AppCompatActivity {
             }catch (InterruptedException e){}
         }
     }
+
 
 }

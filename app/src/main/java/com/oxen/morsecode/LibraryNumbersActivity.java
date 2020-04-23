@@ -70,7 +70,7 @@ public class LibraryNumbersActivity extends AppCompatActivity {
                 break;
 
             case R.id.buttonAandZ:
-                startActivity(new Intent(LibraryNumbersActivity.this, LibraryAlphabetActivity.class));
+                startActivity(new Intent(LibraryNumbersActivity.this, MainActivity.class));
                 break;
 
             case R.id.buttonMenu:

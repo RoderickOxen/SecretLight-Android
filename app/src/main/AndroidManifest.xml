@@ -22,12 +22,14 @@
             </intent-filter>
         </activity>
 
-
-        <activity android:name=".LibraryAlphabetActivity"
-            android:screenOrientation="portrait"/>
-
         <activity android:name=".LibraryNumbersActivity"
             android:screenOrientation="portrait"/>
+
+
+        <activity android:name=".ToolBarActivity"
+            android:screenOrientation="portrait"/>
+
+
 
 
 

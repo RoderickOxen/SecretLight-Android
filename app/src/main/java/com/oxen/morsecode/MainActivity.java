@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     imageFlashlight.setEnabled(true);
 
                     //creates the application
-                    startActivity(new Intent(MainActivity.this, LibraryAlphabetActivity.class));
+                    startActivity(new Intent(MainActivity.this, ToolBarActivity.class));
                 } else {
                     Toast.makeText(MainActivity.this, "Permission Denied for the Camera", Toast.LENGTH_SHORT).show();
                 }
