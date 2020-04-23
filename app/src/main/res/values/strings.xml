@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MorseCode</string>
     <string name="initialText">Secret-Light lets you convert a message into morse code and display it using your flashlight.</string>
-    <string name="libraryText">Click in each button, your FlashLigh will flash the code of that character.</string>
+    <string name="libraryText">Click in each button, your FlashLight will flash the code of that character.</string>
     <string name="wordText">Write down the text that you want to be converted into morse code</string>
 
     <string-array  name="alphabet">
